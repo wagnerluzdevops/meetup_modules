@@ -1,1 +1,42 @@
-<p>produtos-list works!</p>
+<div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="produtos">
+  
+      <!-- ID  -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+      </ng-container>
+  
+      <!-- Nome -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{ element.nome }} </td>
+      </ng-container>
+  
+      <!-- Ação -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+          <button mat-mini-fab color="accent" aria-label="Adiciona Novo Produto" (click)="onAdd()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-header-cell>
+  
+        <mat-cell *matCellDef="let element">
+          <button mat-mini-fab color="primary" aria-label="Modifica o Produto"
+            (click)="onEdit(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-mini-fab color="warn" aria-label="Remove o Produto"
+            (click)="onRemove(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+  
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

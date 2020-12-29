@@ -14,7 +14,6 @@ export class ProdutosService {
   private produtos: Produto[] = [];
 
   constructor(
-    // private http: HttpClient
     ) {
     for (let i = 1; i <= 5; i++) {
       this.produtos.push({id: i, nome: `Produto ${i}`});
@@ -25,13 +24,22 @@ export class ProdutosService {
     return of(this.produtos);
   }
 
-  save(produto: Produto): void { // TODO: mudar retorno para Observable
+  save(produto: Produto): void { 
     if (produto.id === 0) { // create
       produto.id = this.ID_COUNT;
       this.produtos.push(produto);
       this.ID_COUNT++;
-    } else {
-      // edit
+    } else {   // edit
+      this.produtos.splice(this.produtos.findIndex(item => item.id === produto.id), 1)
+      this.produtos.push(produto);
     }
+  }
+
+  findProduto(id: number): Produto {
+    var result = this.produtos.find(obj => {
+        return obj.id == id
+    })
+    
+    return result;
   }
 }

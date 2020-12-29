@@ -5,30 +5,30 @@
       <!-- ID  -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+        <td mat-cell *matCellDef="let item"> {{ item.id }} </td>
       </ng-container>
   
       <!-- Nome -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Nome </th>
-        <td mat-cell *matCellDef="let element"> {{ element.nome }} </td>
+        <td mat-cell *matCellDef="let item"> {{ item.nome }} </td>
       </ng-container>
   
       <!-- Ação -->
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
-          <button mat-mini-fab color="accent" aria-label="Adiciona Novo Produto" (click)="onAdd()">
+          <button mat-mini-fab color="accent" aria-label="Adiciona Novo Produto" [routerLink]="['add']">
             <mat-icon>add</mat-icon>
           </button>
         </mat-header-cell>
   
-        <mat-cell *matCellDef="let element">
+        <mat-cell *matCellDef="let item">
           <button mat-mini-fab color="primary" aria-label="Modifica o Produto"
-            (click)="onEdit(element)">
-            <mat-icon>edit</mat-icon>
+          [routerLink]="['/produtos', item.id, 'edit']">
+          <mat-icon>edit</mat-icon>
           </button>
           <button mat-mini-fab color="warn" aria-label="Remove o Produto"
-            (click)="onRemove(element)">
+            (click)="onRemove(item)">
             <mat-icon>delete</mat-icon>
           </button>
         </mat-cell>

@@ -24,12 +24,14 @@ export class ProdutosListComponent implements OnInit {
     });
   }
 
-  onAdd(): void {
-    // this.router.navigate(['edit'], { relativeTo: this.route });
-  }
+  // onAdd(): void {
+  //   this.router.navigate(['add'], { relativeTo: this.route });
+  // }
 
   onEdit(produto: Produto): void {
     console.log(produto);
+    // this.router.navigate([{ id: produto.id }, 'edit'], { relativeTo: this.route });
+    // this.router.navigate(['/produtos', { id: produto.id }]);
   }
 
   onRemove(produto: Produto): void {

@@ -9,15 +9,17 @@ import { Produto } from './produto.model';
 })
 export class ProdutosService {
 
-  private ID_COUNT = 11;
+  
 
-  private produtos: Produto[] = [];
+  private produtos: Produto[] = [{id:1, nome:'Piano Yamaha p125'}, {id:2, nome:'Teclado Roland E-X30'}];
+  public qntProdInic = this.produtos.length;
+  private ID_COUNT: number = this.produtos.length + 1;
 
   constructor(
     ) {
-    for (let i = 1; i <= 5; i++) {
-      this.produtos.push({id: i, nome: `Produto ${i}`});
-    }
+    // for (let i = 1; i <= 5; i++) {
+    //   this.produtos.push({id: i, nome: `Produto ${i}`});
+    // }
    }
 
   listAll(): Observable<Produto[]> {
@@ -25,6 +27,7 @@ export class ProdutosService {
   }
 
   save(produto: Produto): void { 
+   
     if (produto.id === 0) { // create
       produto.id = this.ID_COUNT;
       this.produtos.push(produto);
@@ -41,5 +44,9 @@ export class ProdutosService {
     })
     
     return result;
+  }
+
+  delete(id: number): void {
+    this.produtos.splice(this.produtos.findIndex(item => item.id === id), 1)
   }
 }

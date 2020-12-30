@@ -27,7 +27,7 @@
           [routerLink]="['/produtos', item.id, 'edit']">
           <mat-icon>edit</mat-icon>
           </button>
-          <button mat-mini-fab color="warn" aria-label="Remove o Produto"
+          <button *ngIf="item.id > countProdInic" mat-mini-fab color="warn" aria-label="Remove o Produto"
             (click)="onRemove(item)">
             <mat-icon>delete</mat-icon>
           </button>

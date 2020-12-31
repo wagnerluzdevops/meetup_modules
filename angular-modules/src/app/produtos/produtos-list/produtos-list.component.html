@@ -1,0 +1,42 @@
+<div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="produtos">
+  
+      <!-- ID  -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let item"> {{ item.id }} </td>
+      </ng-container>
+  
+      <!-- Nome -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let item"> {{ item.nome }} </td>
+      </ng-container>
+  
+      <!-- Ação -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+          <button mat-mini-fab color="accent" aria-label="Adiciona Novo Produto" [routerLink]="['add']">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-header-cell>
+  
+        <mat-cell *matCellDef="let item">
+          <button mat-mini-fab color="primary" aria-label="Modifica o Produto"
+          [routerLink]="['/produtos', item.id, 'edit']">
+          <mat-icon>edit</mat-icon>
+          </button>
+          <button *ngIf="item.id > countProdInic" mat-mini-fab color="warn" aria-label="Remove o Produto"
+            (click)="onRemove(item)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+  
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

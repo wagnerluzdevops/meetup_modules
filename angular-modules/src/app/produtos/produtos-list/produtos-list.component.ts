@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DialogConfirmComponent } from 'src/app/shared/dialog-confirm/dialog-confirm.component';
+
 import { Produto } from '../produto.model';
 import { ProdutosService } from '../produtos.service';
+import { DialogConfirmComponent } from 'src/app/shared/dialog-confirm/dialog-confirm.component';
 
 @Component({
   selector: 'app-produtos-list',
@@ -20,15 +21,15 @@ export class ProdutosListComponent implements OnInit {
   countProdInic: number;
 
   constructor(private router: Router,
-              private route: ActivatedRoute,
-              private service: ProdutosService,
-              public dialog: MatDialog
-              ) { }
+    private route: ActivatedRoute,
+    private service: ProdutosService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.countProdInic = this.service.qntProdInic;
     this.loadData();
-    
+
   }
 
   loadData() {
@@ -36,20 +37,31 @@ export class ProdutosListComponent implements OnInit {
       console.log(prods);
       this.produtos = prods;
     });
-}
+  }
 
   onRemove(produto: Produto): void {
-    console.log(produto);
-    this.service.delete(produto.id);
-    this.table.renderRows(); // Usado pois estamos trabalhando com um array!
+    this.openDialog(produto);
+   
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogConfirmComponent);
+  openDialog(produto: Produto): void {
+    let resultDialog: boolean = false;
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      height: '200px',
+      width: '400px',
+      data: {name: produto.nome, acao: 'excluir'}
+    });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Resultado do Diálogo: ${result}`);
+      resultDialog = result;
+      if (resultDialog) {
+        this.service.delete(produto.id);
+        this.table.renderRows(); // Usado pois estamos trabalhando com um array!
+      }
     });
+   
+    
   }
 
 }
+

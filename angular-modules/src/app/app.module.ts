@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppMaterialModule } from './app-material/app-material.module';
 
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
+    SharedModule
   
   ],
   providers: [],

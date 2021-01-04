@@ -17,7 +17,7 @@ export class ProdutosListComponent implements OnInit {
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
 
   produtos: Produto[] = [];
-  displayedColumns: string[] = ['id', 'name', 'year', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'year', 'status', 'actions'];
   countProdInic: number;
 
   constructor(private router: Router,

@@ -11,7 +11,7 @@ export class ProdutosService {
 
   
 
-  private produtos: Produto[] = [{id:1, nome:'Piano Yamaha p125'}, {id:2, nome:'Teclado Roland E-X30'}];
+  private produtos: Produto[] = [{id:1, nome:'Piano Yamaha p125', ano: '2000'}, {id:2, nome:'Teclado Roland E-X30', ano: '2020'}];
   public qntProdInic = this.produtos.length;
   private ID_COUNT: number = this.produtos.length + 1;
 

@@ -17,7 +17,7 @@ export class ProdutosListComponent implements OnInit {
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
 
   produtos: Produto[] = [];
-  displayedColumns: string[] = ['id', 'name', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'year', 'actions'];
   countProdInic: number;
 
   constructor(private router: Router,
@@ -56,7 +56,7 @@ export class ProdutosListComponent implements OnInit {
       resultDialog = result;
       if (resultDialog) {
         this.service.delete(produto.id);
-        this.table.renderRows(); // Usado pois estamos trabalhando com um array!
+        this.table.renderRows(); // Usado pois estamos trabalhando no service com um array e não com Observable!
       }
     });
    

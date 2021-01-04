@@ -15,6 +15,10 @@ export class ProdutoEditComponent implements OnInit {
   form: FormGroup;
   id = 0;
   produto: Produto;
+  anoFabList: string[] = [
+    '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010',
+    '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020',
+  ];
 
   constructor(private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -22,7 +26,8 @@ export class ProdutoEditComponent implements OnInit {
     private service: ProdutosService) {
     this.form = this.fb.group({
       id: this.fb.control(''),
-      nome: this.fb.control('', [Validators.required])
+      nome: this.fb.control('', [Validators.required]),
+      ano: this.fb.control('')
     });
   }
 
@@ -32,7 +37,8 @@ export class ProdutoEditComponent implements OnInit {
       this.produto = this.service.findProduto(this.id);
       this.form.setValue({
         id: this.produto.id,
-        nome: this.produto.nome
+        nome: this.produto.nome,
+        ano: this.produto.ano
       });
 
     }

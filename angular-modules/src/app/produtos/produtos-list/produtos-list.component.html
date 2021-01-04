@@ -13,6 +13,11 @@
         <th mat-header-cell *matHeaderCellDef> Nome </th>
         <td mat-cell *matCellDef="let item"> {{ item.nome }} </td>
       </ng-container>
+
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef> Ano de Fabricação </th>
+        <td mat-cell *matCellDef="let item"> {{ item.ano }} </td>
+      </ng-container>
   
       <!-- Ação -->
       <ng-container matColumnDef="actions">

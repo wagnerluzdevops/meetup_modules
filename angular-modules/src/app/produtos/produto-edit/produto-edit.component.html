@@ -10,6 +10,12 @@
             O Nome do Produto é <strong>requerido!</strong>
           </mat-error>
         </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Ano de Fabricação</mat-label>
+          <mat-select formControlName="ano">
+            <mat-option *ngFor="let ano of anoFabList" [value]="ano">{{ano}}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </form>
     </mat-card-content>
     <mat-card-actions>

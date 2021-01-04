@@ -6,8 +6,7 @@ import memo from 'memo-decorator';
 })
 export class SituationPipe implements PipeTransform {
 
-  @memo()  
-  // @memo() Evita utilização redudante do pipe
+  @memo()  // @memo() Evita utilização redudante do pipe
   transform(value: number): any {
     console.log('SituationPipe chamado!');
     const old = 2020 - value;

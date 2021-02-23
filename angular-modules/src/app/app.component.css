@@ -1,5 +1,9 @@
+.titulo {
+    font-size: 1.1rem;
+    margin-left: 5%;
+}
 .creditos {
     font-size: .8rem;
-    margin-left: 30%;
+    margin-left: 10%;
     margin-top: -1rem;
 }

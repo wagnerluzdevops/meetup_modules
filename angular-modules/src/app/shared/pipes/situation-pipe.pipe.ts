@@ -11,13 +11,13 @@ export class SituationPipe implements PipeTransform {
     console.log('SituationPipe chamado!');
     const old = 2020 - value;
     if (old === 0) {
-      return 'Tá novo';
+      return 'Recente!';
     }
     if (old >= 1 && old <= 5) {
-      return 'Tá usado';
+      return 'Algum tempo...';
     }
     
-    return 'Tá velho';
+    return 'Muito tempo!';
   }
 
 }

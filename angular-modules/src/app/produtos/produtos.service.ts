@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -8,8 +7,6 @@ import { Produto } from './produto.model';
   providedIn: 'root'
 })
 export class ProdutosService {
-
-  
 
   private produtos: Produto[] = [
     {id:1, nome:'Piano Yamaha p125', ano: '2000'},

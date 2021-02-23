@@ -5,24 +5,26 @@ import { DialogConfirmComponent } from 'src/app/shared/dialog-confirm/dialog-con
 
 import { AppMaterialModule } from '../app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
-import { ProdutoEditComponent } from './produto-edit/produto-edit.component';
-import { ProdutosListComponent } from './produtos-list/produtos-list.component';
-import { ProdutosRoutingModule } from './produtos-routing.module';
+import { ClientesListComponent } from './clientes-list/clientes-list.component';
+import { ClientesRoutingModule } from './clientes-routing.module';
+
+
 
 
 @NgModule({
-  declarations: [ProdutosListComponent, ProdutoEditComponent,
+  declarations: [ClientesListComponent,
      DialogConfirmComponent,
     ],
   imports: [
     CommonModule,
     AppMaterialModule,   // APESAR DE TER SIDO IMPORTADO NO app.module, preciso importar aqui também !!
     SharedModule,
-    ProdutosRoutingModule,
+    ClientesRoutingModule,
     ReactiveFormsModule,
   ],
+
   entryComponents: [
     DialogConfirmComponent
  ]
 })
-export class ProdutosModule { }
+export class ClientesModule { }
